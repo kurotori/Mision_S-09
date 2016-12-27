@@ -7,9 +7,13 @@ import ioio.lib.api.IOIO;
 import ioio.lib.api.IOIO.VersionType;
 import ioio.lib.api.exception.ConnectionLostException;
 import ioio.lib.util.BaseIOIOLooper;
+import ioio.lib.util.IOIOConnectionManager;
 import ioio.lib.util.IOIOLooper;
 import ioio.lib.util.android.IOIOActivity;
 import android.content.Context;
+import ioio.lib.api.Uart;
+import ioio.lib.util.AbstractIOIOActivity;
+
 
 
 import android.os.Bundle;
@@ -21,9 +25,23 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.util.List;
+
 public class ChequearIOIO extends IOIOActivity {
     IOIO ioio;
     TextView tv_chequeo;
+    boolean chequearIOIO = false;
+    private InputStream datosNanoIN;
+    private OutputStream datosNanoOUT;
+    BufferedReader lector;
+    StringBuilder constructor;
+    InputStreamReader recolector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +50,41 @@ public class ChequearIOIO extends IOIOActivity {
 
         tv_chequeo = (TextView) findViewById(R.id.tv_chequeo);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                  //      .setAction("Action", null).show();
 
-
-            }
-        });
     }
 
     class Looper extends BaseIOIOLooper{
+        private Uart serialNano;
+        private DigitalOutput led_;
         @Override
         protected void setup() throws ConnectionLostException {
-            ioio = ioio_;
-            showVersions(ioio_, "Placa IOIO connectada");
+
+            //showVersions(ioio_, "Placa IOIO conectada");
             datosIOIO(ioio_);
+
+            try {
+                serialNano = ioio_.openUart(13, 14, 9600, Uart.Parity.NONE, Uart.StopBits.ONE);
+                datosNanoIN = serialNano.getInputStream();
+                mostrarAviso("\nUART IN iniciado");
+                datosNanoOUT = serialNano.getOutputStream();
+                mostrarAviso("\nUART OUT iniciado");
+
+            } catch (IllegalArgumentException e) {
+                mostrarAviso("\nNo se pudo iniciar UART. Error" + e.toString());
+            }
+            recolector = new InputStreamReader(datosNanoIN);
+
+            try{
+                String comando = "STATUS\n";
+                datosNanoOUT.write(comando.getBytes());
+                mostrarAviso("\nSolicitando datos al ARDUINO");
+            }
+            catch (IOException e){
+                mostrarAviso("\nERROR: "+e.toString());
+            }
+
+
+
         }
 
 
@@ -65,8 +100,32 @@ public class ChequearIOIO extends IOIOActivity {
          */
         @Override
         public void loop() throws ConnectionLostException, InterruptedException {
+                //mostrarAviso("- - -");
 
-            Thread.sleep(100);
+            mostrarAviso("\nEsperando respuesta...");
+            try {
+                if (datosNanoIN.available() > 0) {
+                    String dato="";
+                    //IOIOConnectionManager.Thread.sleep(5000);
+                    lector = new BufferedReader(recolector);
+                    while ((dato = lector.readLine()) != null) {
+
+                        mostrarAviso("\n"+dato);
+
+                    }
+
+                } else {
+                   // mostrarAviso("UART Sin Datos");
+                }
+
+            } catch (IOException e) {
+                mostrarAviso("\n"+e.toString());
+            }
+
+
+
+
+            Thread.sleep(5000);
         }
 
         /**
@@ -116,6 +175,8 @@ public class ChequearIOIO extends IOIOActivity {
 
 
     private void datosIOIO(IOIO ioio){
+
+
         final String hardVer = ioio.getImplVersion(VersionType.HARDWARE_VER);
         final String bootVer = ioio.getImplVersion(VersionType.BOOTLOADER_VER);
         final String libVer = ioio.getImplVersion(VersionType.IOIOLIB_VER);
@@ -124,6 +185,7 @@ public class ChequearIOIO extends IOIOActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                tv_chequeo.setText("Buscando una placa IOIO...");
                 if(IOIOstatus.equals("CONNECTED")){
                     tv_chequeo.setText(
                             "Se ha detectado una placa IOIO:"+"\n"+
@@ -136,12 +198,11 @@ public class ChequearIOIO extends IOIOActivity {
                 else{
                     tv_chequeo.setText("No se detecta la placa IOIO.");
                 }
+                chequearIOIO=false;
 
             }
         });
     }
-
-
 
     private void toast(final String message) {
         final Context context = this;
@@ -149,6 +210,22 @@ public class ChequearIOIO extends IOIOActivity {
             @Override
             public void run() {
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void chequearIOIO(){
+        if(chequearIOIO=false){
+            chequearIOIO=true;
+        }
+
+    }
+
+    private void mostrarAviso(final String aviso){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                tv_chequeo.append(aviso);
             }
         });
     }
