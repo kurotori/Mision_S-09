@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'misions09v1'
+            keyPassword '300ratones'
+            storeFile file('C:/Users/Sebastián/.android/keystore/android.jks')
+            storePassword '300ratones'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "24.0.0"
+    defaultConfig {
+        applicationId "uy.utu.edu.misions_09v1"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:design:25.0.0'
+    compile 'com.android.support:percent:25.0.0'
+    compile 'com.android.support:support-v4:25.0.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.github.ytai.ioio:IOIOLibAndroidDevice:5.07'
+    compile 'com.github.ytai.ioio:IOIOLibAndroidAccessory:5.07'
+    compile 'com.github.ytai.ioio:IOIOLibAndroid:5.07'
+    compile 'com.github.ytai.ioio:IOIOLibCore:5.07'
+    compile 'com.github.ytai.ioio:IOIOLibAndroidBluetooth:5.07'
+
+}

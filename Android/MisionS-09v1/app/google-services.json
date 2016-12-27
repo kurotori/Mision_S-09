@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "140457141618",
+    "firebase_url": "https://mision-s-09-v1.firebaseio.com",
+    "project_id": "mision-s-09-v1",
+    "storage_bucket": "mision-s-09-v1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140457141618:android:acce6459c57f6664",
+        "android_client_info": {
+          "package_name": "uy.utu.edu.misions_09v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140457141618-pof93l8tvmfdj53683tsgmd6d11nn1gv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uy.utu.edu.misions_09v1",
+            "certificate_hash": "485EFE114E30B2431F33B86B7CFC93F98219BA02"
+          }
+        },
+        {
+          "client_id": "140457141618-5dedhhve4r1c9hsi9tst3fsn5086phuo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIPVvAMhdsWe_vkj0ImSaqDeb_3Q0_BAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140457141618-5dedhhve4r1c9hsi9tst3fsn5086phuo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

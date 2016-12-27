@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mision S-09 v1</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- content_inicio -->
+    <string name="bt_cheqComp">Chequear Componentes</string>
+    <string name="bt_crearSesion">Crear Sesión</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bt_cheqIOIO">Chequear IOIO</string>
+    <string name="bt_cheqDatos">Chequear Datos y Conexión</string>
+    <string name="bt_cheqNube">Chequear Almacenamiento en Nube</string>
+    <string name="title_activity_chequear_ioio">ChequearIOIO</string>
+
+    <!-- content_chequear_ioio -->
+    <string name="tv_titulo_chIOIO">Chequeando Conexión con Placa IOIO</string>
+
+</resources>
