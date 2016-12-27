@@ -13,6 +13,6 @@
     <string name="title_activity_chequear_ioio">ChequearIOIO</string>
 
     <!-- content_chequear_ioio -->
-    <string name="tv_titulo_chIOIO">Chequeando Conexión con Placa IOIO</string>
+    <string name="tv_titulo_chIOIO">Conexión con Placa IOIO</string>
 
 </resources>
