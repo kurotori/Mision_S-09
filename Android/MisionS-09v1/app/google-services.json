@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "140457141618-86v3k4r5r1v00nknh29jhrtpfo0bkuot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uy.utu.edu.misions_09v1",
+            "certificate_hash": "A0599E3C13198C9991FA94B101339CFE1DDCD1CC"
+          }
+        },
+        {
           "client_id": "140457141618-pof93l8tvmfdj53683tsgmd6d11nn1gv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

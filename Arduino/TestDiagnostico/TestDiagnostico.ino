@@ -1,7 +1,13 @@
-/* Simple Serial ECHO script : Written by ScottC 03/07/2012 */
+/* 
+ *  Sistema de diagnóstico para Misión S-09 del Club AeroEspacial
+ *  de la Escuela Técnica de Melo
+ *  por Sebastián de los Angeles
+ *  version 0.1
+ *  
+ *  Un sistema sencillo que devuelve por Serial diferentes 
+ *  respuestas de estado dependiendo del comando recibido.
 
-/* Use a variable called byteRead to temporarily store
-   the data coming from the computer */
+*/
 String comando="";
 String sketch="TestDiagnostico";
 String _version="0.1";
@@ -25,7 +31,7 @@ void loop() {
       Serial.print("Version: ");
       Serial.println(_version);
       Serial.print("Tiempo desde el arranque: ");
-      Serial.println(String(tiempo));
+      Serial.println(String(tiempo)+" ms");
       Serial.println("==============");
     }
     else{
