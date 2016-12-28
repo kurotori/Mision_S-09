@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MisionS-09v1.iml" filepath="$PROJECT_DIR$/MisionS-09v1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app-auth/app-auth.iml" filepath="$PROJECT_DIR$/app-auth/app-auth.iml" />
     </modules>
   </component>
 </project>
