@@ -25,14 +25,10 @@ void loop() {
     /* read the most recent byte */
     comando = Serial.readString();
     if (comando.equals("STATUS\n")){
-      Serial.println("===ARDUINO===");
-      Serial.print("Sketch: ");
-      Serial.println(sketch);
-      Serial.print("Version: ");
-      Serial.println(_version);
-      Serial.print("Tiempo desde el arranque: ");
-      Serial.println(String(tiempo)+" ms");
-      Serial.println("==============");
+      Status();
+    }
+    else if (comando.equals("DATOS\n")){
+      Datos();
     }
     else{
       Serial.println("Comando Desconocido");  
@@ -40,3 +36,20 @@ void loop() {
     
   }
 }
+
+void Status(){
+  Serial.println("===ARDUINO===");
+  Serial.print("Sketch: ");
+  Serial.println(sketch);
+  Serial.print("Version: ");
+  Serial.println(_version);
+  Serial.print("Tiempo desde el arranque: ");
+  Serial.println(String(tiempo)+" ms");
+  Serial.println("==============");
+}
+
+void Datos(){
+  String d = "|???|???|AAAA|BBBB|CCCC|DDDD|EEEE|FFFF|GGGG|HHHH";
+  Serial.println(tiempo+d);
+}
+
