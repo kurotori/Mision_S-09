@@ -8,8 +8,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-library android:name="com.android.hardware.usb"
-                      android:required="false"/>
+        <uses-library
+            android:name="com.android.hardware.usb"
+            android:required="false"/>
+
+        <uses-permission android:name="android.permission.CAMERA">
+
+        </uses-permission>
 
         <activity
             android:name=".Inicio"
@@ -27,17 +32,23 @@
             android:name=".ChequearIOIO"
             android:label="@string/title_activity_chequear_ioio"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"/>
+            </intent-filter>
 
-            <intent-filter>
-                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-            </intent-filter>
-            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
-                       android:resource="@xml/accessory_filter" />
-            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
-                       android:resource="@xml/device_filter" />
+            <meta-data
+                android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/accessory_filter"/>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter"/>
+        </activity>
+        <activity android:name=".ChequearNube">
+        </activity>
+        <activity android:name=".PruebaCamara">
         </activity>
     </application>
 

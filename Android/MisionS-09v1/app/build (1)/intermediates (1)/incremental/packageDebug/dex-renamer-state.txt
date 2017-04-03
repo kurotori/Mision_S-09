@@ -1,0 +1,4 @@
+#Mon Nov 28 22:14:24 GFT 2016
+base.0=D\:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=D\:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

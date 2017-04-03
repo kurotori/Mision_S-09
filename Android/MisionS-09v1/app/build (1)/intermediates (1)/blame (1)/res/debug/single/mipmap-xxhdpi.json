@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\simbolo_mas.png",
+        "source": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\src\\main\\res\\mipmap-xxhdpi\\simbolo_mas.png"
+    },
+    {
+        "merged": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\simbolo_info.png",
+        "source": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\src\\main\\res\\mipmap-xxhdpi\\simbolo_info.png"
+    },
+    {
+        "merged": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\logo_app.png",
+        "source": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\src\\main\\res\\mipmap-xxhdpi\\logo_app.png"
+    },
+    {
+        "merged": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
+        "source": "D:\\Drive\\Proyectos\\Globo_Sonda\\Android\\MisionS-09v1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    }
+]

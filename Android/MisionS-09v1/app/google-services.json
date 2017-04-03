@@ -1,60 +1,48 @@
 {
   "project_info": {
-    "project_number": "140457141618",
-    "firebase_url": "https://mision-s-09-v1.firebaseio.com",
-    "project_id": "mision-s-09-v1",
-    "storage_bucket": "mision-s-09-v1.appspot.com"
+    "project_number": "889059024429",
+    "project_id": "mision-s09-v1"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:140457141618:android:acce6459c57f6664",
+        "mobilesdk_app_id": "1:889059024429:android:acce6459c57f6664",
         "android_client_info": {
           "package_name": "uy.utu.edu.misions_09v1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "140457141618-86v3k4r5r1v00nknh29jhrtpfo0bkuot.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "uy.utu.edu.misions_09v1",
-            "certificate_hash": "A0599E3C13198C9991FA94B101339CFE1DDCD1CC"
-          }
-        },
-        {
-          "client_id": "140457141618-pof93l8tvmfdj53683tsgmd6d11nn1gv.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "uy.utu.edu.misions_09v1",
-            "certificate_hash": "485EFE114E30B2431F33B86B7CFC93F98219BA02"
-          }
-        },
-        {
-          "client_id": "140457141618-5dedhhve4r1c9hsi9tst3fsn5086phuo.apps.googleusercontent.com",
+          "client_id": "889059024429-ekaa7iovpi83oashkpn5fdj8i6rdtbku.apps.googleusercontent.com",
           "client_type": 3
+        },
+        {
+          "client_id": "889059024429-raaolt5p5pj99kfv7vlcpalsr8e8e2ii.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uy.utu.edu.misions_09v1",
+            "certificate_hash": "485efe114e30b2431f33b86b7cfc93f98219ba02"
+          }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAIPVvAMhdsWe_vkj0ImSaqDeb_3Q0_BAQ"
+          "current_key": "AIzaSyBqff1k0H17VCE9THqojr36ACxOzFbRIL8"
         }
       ],
       "services": {
         "analytics_service": {
-          "status": 1
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-96238112-1"
+          }
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "140457141618-5dedhhve4r1c9hsi9tst3fsn5086phuo.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 2
+          "status": 1
         }
       }
     }

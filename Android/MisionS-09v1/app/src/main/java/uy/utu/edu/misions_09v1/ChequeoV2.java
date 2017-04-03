@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class ChequeoV2 extends AppCompatActivity {
     Button bt_chqIOIO;
+    Button bt_chqNube;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,15 +16,26 @@ public class ChequeoV2 extends AppCompatActivity {
         setContentView(R.layout.activity_chequeo_v2);
 
         bt_chqIOIO = (Button) findViewById(R.id.bt_cheqIOIO);
+        bt_chqNube = (Button) findViewById(R.id.bt_cheqNube);
         bt_chqIOIO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 IrAChequeoIOIO(view);
             }
         });
+        bt_chqNube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IrAChequeoNube(view);
+            }
+        });
     }
     private void IrAChequeoIOIO(View v){
         Intent intento = new Intent(this, ChequearIOIO.class);
+        startActivity(intento);
+    }
+    private void IrAChequeoNube(View v){
+        Intent intento = new Intent(this, PruebaCamara.class);
         startActivity(intento);
     }
 }
