@@ -1,9 +1,7 @@
 #include <DS1302.h>
-
 #include <SoftwareSerial.h>
 #include <Time.h>
 #include <TimeLib.h>
-
 #include <SD.h>
 
 unsigned long milisegundos=0;
@@ -116,10 +114,10 @@ void loop() {
 
   if (Serial.available()) {
     digitalWrite(ledG, LOW);
-    digitalWrite(ledR, HIGH);
+    digitalWrite(ledB, HIGH);
     texto = Serial.readString();
     archivo = SD.open("prueba.txt", FILE_WRITE);
-    digitalWrite(ledR, LOW);
+    digitalWrite(ledB, LOW);
     if (archivo) {
       digitalWrite(ledB, HIGH);
       tiempo = String(RTC.getDateStr())+ " " + String(RTC.getTimeStr());
@@ -127,8 +125,17 @@ void loop() {
       archivo.close();
       Serial.println("---Escritura Existosa---");
       digitalWrite(ledB, LOW);
+      delay(100);
+      digitalWrite(ledB, HIGH);
+      delay(100);
+      digitalWrite(ledB, LOW);
+      delay(100);
+      digitalWrite(ledB, HIGH);
+      delay(100);
+      digitalWrite(ledB, LOW);
     }
     else {
+      //En caso de error de escritura
       digitalWrite(ledR, HIGH);
       delay(100);
       digitalWrite(ledR, LOW);

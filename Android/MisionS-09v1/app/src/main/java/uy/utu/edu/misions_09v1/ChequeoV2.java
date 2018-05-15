@@ -35,7 +35,7 @@ public class ChequeoV2 extends AppCompatActivity {
         startActivity(intento);
     }
     private void IrAChequeoNube(View v){
-        Intent intento = new Intent(this, PruebaCamara.class);
+        Intent intento = new Intent(this, ChequearNube.class);
         startActivity(intento);
     }
 }

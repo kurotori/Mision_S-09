@@ -2,36 +2,26 @@ package uy.utu.edu.misions_09v1;
 
 
 //Para IOIO
-import ioio.lib.api.DigitalOutput;
-import ioio.lib.api.IOIO;
-import ioio.lib.api.IOIO.VersionType;
-import ioio.lib.api.exception.ConnectionLostException;
-import ioio.lib.util.BaseIOIOLooper;
-import ioio.lib.util.IOIOConnectionManager;
-import ioio.lib.util.IOIOLooper;
-import ioio.lib.util.android.IOIOActivity;
 import android.content.Context;
-import ioio.lib.api.Uart;
-import ioio.lib.util.AbstractIOIOActivity;
-
-
-
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.util.List;
+
+import ioio.lib.api.DigitalOutput;
+import ioio.lib.api.IOIO;
+import ioio.lib.api.IOIO.VersionType;
+import ioio.lib.api.Uart;
+import ioio.lib.api.exception.ConnectionLostException;
+import ioio.lib.util.IOIOBaseApplicationHelper;
+import ioio.lib.util.BaseIOIOLooper;
+import ioio.lib.util.android.IOIOActivity;
+import ioio.lib.util.IOIOLooper;
 
 public class ChequearIOIO extends IOIOActivity {
     IOIO ioio;
@@ -64,8 +54,11 @@ public class ChequearIOIO extends IOIOActivity {
 
             try {
                 serialNano = ioio_.openUart(13, 14, 9600, Uart.Parity.NONE, Uart.StopBits.ONE);
+                //datosNanoIN --> los datos que llegan DESDE el Nano
                 datosNanoIN = serialNano.getInputStream();
                 mostrarAviso("\nUART IN iniciado");
+
+                //datosNanoOUT --> los datos que van HACIA el Nano
                 datosNanoOUT = serialNano.getOutputStream();
                 mostrarAviso("\nUART OUT iniciado");
 
@@ -75,9 +68,11 @@ public class ChequearIOIO extends IOIOActivity {
             recolector = new InputStreamReader(datosNanoIN);
 
             try{
-                String comando = "STATUS\n";
+                String comando = "s\n";
                 datosNanoOUT.write(comando.getBytes());
-                mostrarAviso("\nSolicitando datos al ARDUINO");
+                mostrarAviso("\nSolicitando datos al" +
+                        "" +
+                        " ARDUINO");
             }
             catch (IOException e){
                 mostrarAviso("\nERROR: "+e.toString());

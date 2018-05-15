@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="uy.utu.edu.misions_09v1">
+    <uses-permission android:name="android.permission.CAMERA">
 
+    </uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo_app"
@@ -12,9 +14,7 @@
             android:name="com.android.hardware.usb"
             android:required="false"/>
 
-        <uses-permission android:name="android.permission.CAMERA">
 
-        </uses-permission>
 
         <activity
             android:name=".Inicio"
